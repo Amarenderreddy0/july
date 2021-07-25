@@ -1,0 +1,538 @@
+git init
+
+git config --global user.name "Polarapu Prasad"
+git config --global user.email "devopstraining2015@gmail.com"
+
+git config --list
+
+Paheses:
+
+
+1) Workspace
+2) Staging  / Index
+3) Local repo
+
+touch file1
+ls
+git status
+git add file1
+git status
+git commit -m "label" file1
+git status
+git log
+git show cid
+
+touch file2 file3 file4 file5
+git status
+git add file2 file4
+or
+git add *
+or
+git add .
+or
+git add -A
+git status
+git commit -m "label"
+
+git reset --soft cid  (local to staging)
+git reset HEAD file-name  (staging to workspace)
+git reset --mixed cid  (local to workspace)
+
+
+git commit -m "label" file  (workspace to local *only modiified files) 
+
+
+cd 
+ls
+cd batch59
+touch prasad
+git status
+git add .
+git commit -m "label" prasad
+git push
+
+EVERY GITHUB ACCOUNT HAS WE CAN CREATE NEW REPOSITORIES 
+BUT ORGANIZATION IS ONLY ONE ..DIFFERENT ORGANIZATIONS HAVE DIFFERTNT MODEL
+COMPANY NAME .PROJECT NAME .EXTENTION.
+
+-------------------------------------------------------------
+git clone 
+cd batch59
+ls
+touch name
+git status
+git add *
+git commit -m "label" 
+git status
+git log
+git push
+git pull --rebase
+git push
+git pull --rebase
+git push
+
+log's
+--------
+git log
+git log -n
+git log --oneline
+git log --oneline -n
+git log --author=Pratap
+git log --author=Pratap -n
+git log --author=Pratap --oneline
+git log --author=Pratap --oneline -n
+git log --since=yy-mm-dd
+or
+git log --after=yy-mm-dd
+
+git log --until=yy-mm-dd
+or
+git log --before=yy-mm-dd
+
+git log --since=yy-mm-dd --until=yy-mm-dd
+or
+git log --after=yy-mm-dd --before=yy-mm-dd
+
+git log --after="yy-mm-dd hh:mm" --before="yy-mm-dd hh:mm"
+
+git log -- file-name
+git log --grep="label"
+
+BRANCH
+-----------
+
+git branch
+git branch branch-name
+git branch
+git checkout branch-name 
+git merge branch-name  (all changes)
+git cherry-pick cid   (only one commit)
+
+git push origin branch-name 
+or
+git push path/of/c-repo branch-name
+git branch -d branch-name  (local)
+git push origin -d branch-name  (central)
+
+git branch 
+git branch -r
+git checkout -b origin/branch
+git checkout -b origin/branch
+git branch
+
+git revert cid
+
+
+
+TOUCH, CAT, VI
+-----------------------
+touch
+--------
+touch file1
+ls
+touch file2 file3 file4
+
+
+CAT
+-----
+cat > file5
+....
+....
+ctrl+d
+
+cat file5
+
+cat >> file5
+...
+...
+ctrl+d
+
+VI
+---
+
+vi file6
+---------
+esc i
+........
+.........
+esc :w
+esc :q
+or
+esc :wq!
+
+git status
+git config --global alias.s "status"
+git s
+
+git config --list
+git config --global alias.cl "config --list"
+git cl
+
+git log --oneline
+git config --global alias.l1 "log --oneline"
+git l1
+
+git config --list
+
+To remove Alias and user-email
+-------------------------------------------
+git config --global --unset alias.l1
+git config --global --unset user.name
+git config --global --unset user.email
+
+git checkout -b branch  (creating branch & checkout to branch)
+
+CONFLICTS:
+==========
+1)Abort
+2)Manual
+3) Auto merging
+
+git merge --abort
+
+TAG
+------
+git tag
+git tag tag-name
+git show tag-name
+or
+git log
+git tag tag-name cid
+
+git push origin tag-name
+or
+git push --tags
+Delete
+-------
+git tag -d tag-name  (local)
+git push origin -d tag-name  (central)
+
+amend
+---------
+git commit --amend -m "label" 
+
+ignorfiles
+-------------
+
+vi .gitignore
+-----------------
+file1
+file2
+file3
+
+
+
+
+===============================
+
+12-1-2021 git 1
+
+What is Git
+Types of Version Controlling
+What is git bash?
+Configure Git
+Types of files
+git init Observations
+How to move files to staging area
+How to know the status of the files
+How to move file to local repository
+How to see list of commits
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Version control systems are tools that help a software team manage changes to source code over time.
+
+For almost all software projects, the source code is like the crown jewels - a precious asset whose value must be protected. 
+
+VCS are sometimes known as SCM (Source Code Management) tool.
+
+Most widely used modern version control system in the world today is Git. Git is a mature, actively maintained open source tool originally developed in 2005 by Linus Torvalds, the famous creator of the Linux operating system kernel. 
+
+Two types Version Controlloing
+1) Centrailized Version controlling 
+2) Distributed Version controlling
+
+Git is Distributed Version controlling.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+What is gitbash ?
+
+How to configure username and email for git
+
+$ git init
+
+$ git config --global   user.name "sunilkumark11"
+$ git config --global   user.email  "sunilkumark11@gmail.com"
+
+ TO check the configurations
+$ git config  --global  --list
+
+working directory ------> staging area -------> LR
+
+untracked files
+staged files
+commited files
+
++++++++++++++
+
+How to make working directory as git repository
+
+$ git init
+
+-Observation -
+
+++++++++++++++++
+
+$  git status
+
++++++++++++++++++
+To move file to staging area
+
+$ git  add  f1
+
+$  git  add   f2  f3
+
+$ git  add  .
+
+
+++++++++++++++++
+Bring file back to untracked section
+
+$ git rm  --cached f1
+
+or
+
+$ git reset  f2 
+
+++++++++++++++++++++
+To move the files from staging are to LR
+
+$ git  commit  -m  "first commit"
+
+$ git status
+
++++++++++++++++++++
+To see the list of commit
+
+$ git log
+
++++++++++++++++++++
+remaining files I want to move to LR
+
+$ git  add .
+$ git commit -m  "second commit"
+
+$ git log
+(or)
+git log --oneline
+
+
+$  git status
+
+++++++++++++++++++
+Notes
+1) Setting username and email
+
+2) As per git , there are three comopnents
+working directory  --  untracked files
+staging area  -- staged files
+LR  -- commited files
+
+3) commands
+To initilize working directory as git repo
+To move files to staging are
+To bring back files from staging to untracked sectiion
+To move files from staging to LR
+To check the status of untracked files and staged files
+To see the commit history
+
+
+13-1-2021 git 2
+--------------------
+Quick revision ( Untracked files, staged files, commited files )
+Understanding the need for branching
+How to create new branch (git branch  branchname )
+How to see the list of branches ( git branch )
+Move the control to new branch (git checkout  branchname )
+To merge  branch with  master ( git merge branchname )
+Understanding .gitignore file
+
+
+Branching
+--------------
+
+This feature is provided in git, so that developers can create code related to different functionalities  on seprate branches.
+This helps the development team in creating the code in an uncluttered way.
+Later this code can be merged with master branch.
+Default branch of git is "Master"
+
+
+Developer
+
+Home Page   --  f1  f2   f3
+Services   --  f4  f5
+Contact US  --  f6  f7   f8
+
+branch
+
+
+git  init  --  master
+
++++++++++++++++++++++++++++++++++
+
+
+git branch  branchname 
+
+git  branch test
+
+++++++++++++++
+Remote repository  ( Github )
+
+Git rebase
+
+------------------------------------------------
+
+15-1-2021 git 3
+
+Git Rebase
+Understanding difference between merge and rebase
+Re arrange the commit history
+How to merge the commits
+How to selectively pickup commits from child branch
+
+Git  rebase
+==============
+This is called as fastforward merge.
+The commits from the child branch are added to the top of the master branch.
+This is helpful when we want code from a branch to be reflected as the latest working version on master.
+
+
+Rearrange the commit order
+---------------------------
+git rebase -i HEAD~4
+
+
+Merge the commit's using "squash"
+--------------------------------
+git rebase -i HEAD~4
+Remove the pick word and replace it with squash
+--------------------------------------------------------------------
+
+18-1-2021 git 4
+
+
+How to selectively pickup the commit's from child branch 
+Git stash
+To stash  the stagged files ( git  stash )
+To stash  staged and untracked files ( git  stash  -u )
+TO get back the stashed files ( git  stash pop )
+Git Ammed
+How to go back to previous version of code?
+Remote Repository ( Github )
+
+++++++++++++++++++
+
+
+How to selectively pickup the commit's from child branch ( Cherry-pick )
+
+$ git  cherry-pick   7fed4ce    86f93d2     ( commit id's)
+
+
+
+Git stash
+-----------
+
+
+git  init
+touch  f1   f2
+git  add  .
+git  commit  -m "a"
+
+touch  f3    f4
+git  add .
+touch   f5     f6   
+
+git  status  (  2  staged file,   2  untracked files )
+
+
+
+
+
+git  stash
+git  status  (   2  untracked files )
+git  add .
+git  commit  -m "b"
+
+git  status  (  Working tree is clean  )
+
+git  stash  pop  
+git  status   (  2  staged  files )
+
+git commit  -m  "c"
+
+touch   f7   f8
+git  add .
+touch   f9  f10
+git  status   (  2  staged , 2 untracked )
+
+git  stash  -u  
+git  status  ( Working tree is clean )
+
+++++++++++++++++++++++++
+Notes:
+This feature is used for leaving unfinished work, in such a way that Git cannot access it and continue  work on some other files.
+
+Further commands of git should be able to process only  the new files.
+This can be done using git stash.
+
+Commands
+--------------------
+1) To stash  the stagged files
+ $  git  stash
+
+2) To stash  staged and untracked files
+$  git  stash  -u
+
+3) To see the list of stashes
+    git  stash  list
+
+4) TO get back the stashed files
+   git  stash pop
+
+5) to bring the older stash  out
+  git  stash  pop  stash@{stash_number}
+
+
+
++++++++++++++++++++++
+
+Git Ammend
+----------------
+
+$ git commit  --amend  -m "b"
+
+
+How to go back to previous version of code
+----------------------------------------------
+git reset --hard f1cd7c3
+
+
+
+git remote add origin https://github.com/sunildevops77/rep22.git
+
+git push -u origin master
+
+
+
+
+
+
+
+
+
+
+
+
